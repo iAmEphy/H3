@@ -18,6 +18,9 @@ public class LinkedList
     {
       this(x, null, null);
     }
+    
+    private Node first;
+    private Node last;
         
   }
   
