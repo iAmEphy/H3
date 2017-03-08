@@ -1,5 +1,7 @@
 public class LinkedList
 {
+  private Node first;
+  private Node last;
   private class Node
   {
     
@@ -18,10 +20,36 @@ public class LinkedList
     {
       this(x, null, null);
     }
-    
-    private Node first;
-    private Node last;
-        
+
   }
+  
+  public LinkedList()
+  {
+    first = null;
+    last = null;
+    
+  }
+  
+  public Node getFirst()
+  {
+    return this.first;
+  }
+  
+  public void setFirst(Node first)
+  {
+    this.first = first;
+  }
+  
+  public Node getLast()
+  {
+    return this.last;
+  }
+  
+  public void setLast(Node last)
+  {
+    this.last = last;
+  }
+  
+  
   
 }
