@@ -50,6 +50,24 @@ public class LinkedList
     this.last = last;
   }
   
+  public boolean isEmpty()
+  {
+    return first == null;
+  }
+  
+  public int size()
+  {
+    int count = 0;
+    Node changeNode = first;
+    
+    while(changeNode != null)
+    {
+      count++;
+      changeNode = changeNode.next;
+    }
+    return count;
+  }
+  
   
   
 }
