@@ -68,6 +68,38 @@ public class LinkedList
     return count;
   }
   
+  public void add(String data)
+  {
+    if(isEmpty())
+    {
+      last = new Node(data);
+      first = last;
+    }
+    else
+    {
+      last.next = new Node(data, null, last);
+        last = last.next;
+    }
+  }
+  
+  public Node findNode(String data)
+  {
+    Node findNodes = first;
+    
+    while(findNodes != null)
+    {
+      if(findNodes.nodes.equals(data))
+      {
+        return findNodes;
+      }
+      else
+      {
+        findNodes = findNodes.next;
+      }
+    }
+    return null;
+  }
+  
   
   
 }
