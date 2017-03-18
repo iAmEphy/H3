@@ -100,6 +100,32 @@ public class LinkedList
     return null;
   }
   
+  public void traverseForward()
+  {
+    Node printNode = first;
+    
+    while(printNode != null)
+    {
+      System.out.println(printNode.nodes);
+      printNode = printNode.next;
+    }
+  }
   
+  public void traverseBack()
+  {
+    Node printNode = last;
+    
+    while(printNode != null)
+    {
+      System.out.println(printNode.nodes);
+      printNode = printNode.before;
+    }
+  }
+  
+  public void destroy()
+  {
+    this.first = null;
+    this.last = null;
+  }
   
 }
