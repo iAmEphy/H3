@@ -1,7 +1,5 @@
 public class LinkedList
 {
-  private Node first;
-  private Node last;
   private class Node
   {
     
@@ -22,6 +20,11 @@ public class LinkedList
     }
 
   }
+  
+  private Node first;
+  private Node last;
+  
+  
   
   public LinkedList()
   {
@@ -84,73 +87,77 @@ public class LinkedList
     }
   }
   
-  public void add(int index, String data)
-  {
-    if( index < 0 || index > size())
-    {
-      System.out.println("The index is outside of the bounds.");
-      return;
-    }
-    if(index == 0)
-    {
-      Node prevFirst = first;
-      first = new Node(data, prevFirst, null);
-      
-      if(prevFirst != null)
-      {
-        prevFirst.before = first;
-      }
-      if(last == null)
-      {
-        last = first;
-      }
-      return;
-    }
-    
-    
-    Node before1 = first;
-    
-    for(int x = 1; x <= index - 1; x++)
-    {
-      before1 = before1.next;
-    }
-    
-    Node after1 = before1.next;
-    Node middle = new Node(data, after1, before1);
-    after1.next = middle;
-    
-    if(after1 == null)
-    {
-      last = middle;
-    }
-    else
-    {
-      after1.before = middle;
-    }
-  }
+  public void add(int index, String data) 
+ {
+        if (index < 0  || index > size())
+        {
+            System.out.println("Index is out of bounds.");
+            return;
+        }
+        
+        if (index == 0)
+        {
+         Node early = first;
+         
+         first = new Node(data, early, null);
+            
+         if (early != null) 
+         {
+           early.before = first;
+         }        
+            
+         if (last == null) 
+         {
+           last = first;
+           return;
+         }
+        }
+
+        Node previousAns = first;
+        for (int x = 1; x <= index -1; x++)
+        {
+         previousAns = previousAns.next;
+        }
+        
+        Node successor = previousAns.next;
+        
+        Node middle = new Node(data, successor, previousAns); 
+        
+        previousAns.next = middle;
+       
+        if (successor == null)
+        {
+            last = middle;
+        }
+        else            
+        {
+         successor.before = middle;
+        }
+ }
   
-  public void alpha(String data)
-  {
-    if(isEmpty())
+  public void alphabetical(String data)
+ {
+    if (isEmpty())
     {
       last = new Node(data);
       first = last;
     }
-    else
+    
+    else 
     {
       int index = 0;
-      
       Node different = first;
       
       while(different.nodes.compareTo(data) < 0)
       {
         index++;
         different = different.next;
-      }
-      
-      this.add(index, data);
-    }
+      }  
+   this.add(index, data);
   }
+ }
+  
+  
   
   public Node findNode(String data)
   {
@@ -240,8 +247,5 @@ public class LinkedList
     this.first = null;
     this.last = null;
   }
-  
-  
-  
   
 }
